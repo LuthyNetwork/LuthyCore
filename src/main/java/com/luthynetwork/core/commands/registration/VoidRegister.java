@@ -1,6 +1,6 @@
 package com.luthynetwork.core.commands.registration;
 
-import com.luthynetwork.core.commands.CoreCommand;
+import com.luthynetwork.core.commands.VoidCommand;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import org.bukkit.command.CommandMap;
@@ -16,18 +16,18 @@ import java.lang.reflect.Field;
  * @author Ian Libânio (Null)
  */
 @AllArgsConstructor
-public class CommandRegister {
+public class VoidRegister {
 
     private final Plugin plugin;
 
     @SneakyThrows
-    public void add(CoreCommand... commands)  {
+    public void add(VoidCommand... commands)  {
         Field bukkitCommandMap = plugin.getServer().getClass().getDeclaredField("commandMap");
         bukkitCommandMap.setAccessible(true);
 
         CommandMap commandMap = (CommandMap) bukkitCommandMap.get(plugin.getServer());
 
-        for (CoreCommand command : commands) {
+        for (VoidCommand command : commands) {
             commandMap.register(plugin.getName(), command);
         }
     }

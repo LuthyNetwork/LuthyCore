@@ -31,7 +31,7 @@ import java.util.concurrent.atomic.AtomicReference;
  *
  * @author Ian Libânio (Null)
  */
-public abstract class CoreCommand extends org.bukkit.command.Command {
+public abstract class VoidCommand extends org.bukkit.command.Command {
 
     private Player player;
     private Command command;
@@ -39,7 +39,7 @@ public abstract class CoreCommand extends org.bukkit.command.Command {
     private final ISubCommandController<String, Sub> controller = new SubCommandControllerImpl();
     private final ISubCommandController<String, Sub> validController = new ValidSubCommandsControllerImpl();
 
-    public CoreCommand() {
+    public VoidCommand() {
         super("");
 
         for (Method method : this.getClass().getDeclaredMethods()) {

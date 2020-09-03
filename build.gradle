@@ -4,7 +4,7 @@ plugins {
     id "io.freefair.lombok" version "5.1.1"
 }
 
-group = 'com.yan.minecraft.luthycore'
+group = 'com.luthynetwork.core'
 version = '1.0-SNAPSHOT'
 
 repositories {
