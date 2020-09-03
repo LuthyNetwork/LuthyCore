@@ -23,6 +23,8 @@ public final class LuthyCore extends CorePlugin {
     public void enable() {
         instance = this;
 
+        saveDefaultConfig();
+
         api = new LuthyAPI(getDataSourceFromConfig(), this);
 
         listeners(this, new AccountListener(), new LocalPlayerListener());
