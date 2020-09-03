@@ -1,11 +1,10 @@
 package com.yan.minecraft.luthycore.service.implement;
 
 import com.google.common.collect.Maps;
-import com.google.gson.Gson;
-import com.yan.minecraft.luthycore.LuthyAPI;
 import com.yan.minecraft.luthycore.LuthyCore;
 import com.yan.minecraft.luthycore.data.Account;
 import com.yan.minecraft.luthycore.service.IAccount;
+import lombok.val;
 
 import java.util.Map;
 import java.util.UUID;
@@ -13,11 +12,11 @@ import java.util.UUID;
 public class AccountImpl implements IAccount {
 
     private final Map<UUID, Account> all = Maps.newHashMap();
-    private final LuthyAPI api = LuthyCore.getApi();
 
     @Override
     public void save(Account corePlayer) {
-        Gson gson = api.getGson();
+        val api = LuthyCore.getApi();
+        val gson = api.getGson();
 
         api.getHikariConnection().query("INSERT INTO USERS(uuid,data) VALUES(?,?) ON DUPLICATE KEY UPDATE DATA=?", (statement) -> {
             statement.setString(1, corePlayer.getUuid().toString());
@@ -29,7 +28,9 @@ public class AccountImpl implements IAccount {
 
     @Override
     public void saveAll() {
-        Gson gson = api.getGson();
+        val api = LuthyCore.getApi();
+        val gson = api.getGson();
+
         api.getHikariConnection().query("INSERT INTO USERS(uuid,data) VALUES(?,?) ON DUPLICATE KEY UPDATE DATA=?", (statement) -> {
             for (Account corePlayer : all().values()) {
                 statement.setString(1, corePlayer.getUuid().toString());
@@ -44,7 +45,8 @@ public class AccountImpl implements IAccount {
 
     @Override
     public void load(UUID uuid) {
-        Gson gson = api.getGson();
+        val api = LuthyCore.getApi();
+        val gson = api.getGson();
 
         api.getHikariConnection().query("select * from users where uuid=?", (statement) -> {
             statement.setString(1, uuid.toString());
