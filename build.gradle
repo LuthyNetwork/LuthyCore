@@ -9,7 +9,6 @@ version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
-    maven { url 'https://jitpack.io' }
     maven { url 'https://oss.sonatype.org/content/groups/public/' }
 }
 
@@ -18,8 +17,7 @@ dependencies {
     compile fileTree(dir: 'libs/compile', include: ['*.jar'])
 
     compile 'com.zaxxer:HikariCP:3.4.5'
-
-    implementation 'com.github.ianlibanio:VoidCommand:1.3'
+    compile 'org.jetbrains:annotations:16.0.2'
 }
 
 
