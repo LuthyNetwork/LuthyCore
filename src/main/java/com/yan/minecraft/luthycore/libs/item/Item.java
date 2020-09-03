@@ -33,6 +33,7 @@ public class Item {
 
     public Item(Material material, int amount, int data) {
         this.stack = new ItemStack(material, amount, (short) data);
+        this.meta = stack.getItemMeta();
     }
 
     public Item name(String name) {
