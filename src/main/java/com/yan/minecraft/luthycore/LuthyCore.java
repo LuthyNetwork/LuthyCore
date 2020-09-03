@@ -1,5 +1,6 @@
 package com.yan.minecraft.luthycore;
 
+import com.yan.minecraft.luthycore.controller.DatabaseController;
 import com.yan.minecraft.luthycore.helpers.CorePlugin;
 import com.yan.minecraft.luthycore.listener.AccountListener;
 import com.yan.minecraft.luthycore.listener.local.LocalPlayerListener;
@@ -26,6 +27,7 @@ public final class LuthyCore extends CorePlugin {
         saveDefaultConfig();
 
         api = new LuthyAPI(getDataSourceFromConfig(), this);
+        DatabaseController.init();
 
         listeners(this, new AccountListener(), new LocalPlayerListener());
 

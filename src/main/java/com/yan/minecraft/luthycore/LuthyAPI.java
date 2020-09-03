@@ -29,8 +29,6 @@ public class LuthyAPI {
         gson = new GsonBuilder().create();
 
         hikariConnection = new CoreHikariImplement(hikariDataSource);
-
-        DatabaseController.init();
     }
 
 }
