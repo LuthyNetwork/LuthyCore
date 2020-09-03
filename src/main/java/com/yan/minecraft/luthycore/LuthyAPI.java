@@ -2,10 +2,8 @@ package com.yan.minecraft.luthycore;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.yan.minecraft.luthycore.controller.DatabaseController;
 import com.yan.minecraft.luthycore.helpers.CorePlugin;
 import com.yan.minecraft.luthycore.libs.database.CoreHikariImplement;
-import com.yan.minecraft.luthycore.libs.inventory.InventoryManager;
 import com.yan.minecraft.luthycore.libs.proxy.BungeeChannelApi;
 import com.yan.minecraft.luthycore.service.IAccount;
 import com.zaxxer.hikari.HikariDataSource;
@@ -15,13 +13,11 @@ public class LuthyAPI {
 
     @Getter public CoreHikariImplement hikariConnection;
     @Getter public BungeeChannelApi bungeeChannelApi;
-    @Getter public InventoryManager inventoryManager;
 
     @Getter public IAccount accountService;
     @Getter public Gson gson;
 
     public LuthyAPI(HikariDataSource hikariDataSource, CorePlugin plugin) {
-        inventoryManager = new InventoryManager(plugin);
         bungeeChannelApi = new BungeeChannelApi(plugin);
 
         accountService = plugin.getService(IAccount.class);
