@@ -1,6 +1,6 @@
 name: LuthyCore
 version: '1.0-SNAPSHOT'
-main: com.yan.minecraft.luthycore.LuthyCore
+main: com.luthynetwork.core.LuthyCore
 prefix: LuthyCore
 authors: [YanSpatt]
 description: Core plugin
