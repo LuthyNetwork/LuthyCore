@@ -24,7 +24,6 @@ import java.util.UUID;
     */
     private transient Map<String,Object> localData;
 
-
     public Account(UUID uuid){
         this.uuid = uuid;
         this.firstLogin = System.currentTimeMillis();

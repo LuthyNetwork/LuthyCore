@@ -3,6 +3,7 @@ package com.luthynetwork.core.libs.scoreboard;
 import com.luthynetwork.core.libs.scoreboard.manager.Board;
 import com.luthynetwork.core.libs.scoreboard.manager.tasks.BoardUpdateTask;
 import com.luthynetwork.core.libs.scoreboard.settings.BoardSettings;
+import com.luthynetwork.login.events.PlayerLoginEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -68,7 +69,7 @@ public class ScoreboardManager implements Listener {
     }
 
     @EventHandler
-    public void onJoin(final PlayerJoinEvent e) {
+    public void onJoin(final PlayerLoginEvent e) {
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
             if (e.getPlayer().isOnline()) { // Set this up 2 ticks later.
                 setup(e.getPlayer());
