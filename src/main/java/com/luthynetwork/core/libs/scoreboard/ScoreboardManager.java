@@ -69,6 +69,7 @@ public class ScoreboardManager implements Listener {
     }
 
     @EventHandler
+/*   public void onJoin(final PlayerLoginEvent e) { ------ For Lobby Use This (starts the score only when player is logged in)!  */
     public void onJoin(final PlayerLoginEvent e) {
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
             if (e.getPlayer().isOnline()) { // Set this up 2 ticks later.
