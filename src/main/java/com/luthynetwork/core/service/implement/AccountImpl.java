@@ -54,11 +54,11 @@ public class AccountImpl implements IAccount {
             api.getHikariConnection().result(statement, (resultSet -> {
                 if (!resultSet.next()) {
                     create(uuid);
-                    System.out.println("creating new");
+//                    System.out.println("creating new");
                     return;
                 }
                 all().put(uuid, gson.fromJson(resultSet.getString("data"), Account.class));
-                System.out.println(all.size());
+//                System.out.println(all.size());
             }));
         });
     }

@@ -14,7 +14,7 @@ public class TimeUtilities {
 
         if (timeOfDay < 12) {
             part = "um bom dia";
-        }else if (timeOfDay < 21) {
+        }else if (timeOfDay < 18) {
             part = "uma boa tarde";
         } else {
             part = "uma boa noite";
